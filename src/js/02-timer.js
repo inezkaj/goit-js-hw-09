@@ -26,7 +26,13 @@ const options = {
     startButton.addEventListener('click', event => {
       console.log(selectedDate);
       timerId = setInterval(() => {
-        let final = convertMs(selectedDate - new Date());
+        const myData = selectedDate - new Date();
+        if (myData <= 0) {
+          clearInterval(timerId);
+          return;
+        }
+
+        let final = convertMs(myData);
         document.querySelector(`[data-seconds]`).innerText = addLeadingZero(
           final.seconds
         );

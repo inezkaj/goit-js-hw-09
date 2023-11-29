@@ -14,8 +14,8 @@ function createPromise(position, delay) {
   });
 }
 
-const submitButton = document.querySelector('.form button[type="submit"]');
-submitButton.addEventListener('click', event => {
+const form = document.querySelector('.form');
+form.addEventListener('submit', event => {
   event.preventDefault();
 
   const delay = parseInt(
