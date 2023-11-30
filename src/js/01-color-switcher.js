@@ -10,9 +10,13 @@ startButton.addEventListener('click', event => {
   timerId = setInterval(() => {
     let colorFull = getRandomHexColor();
     document.querySelector('body').style.backgroundColor = colorFull;
+    startButton.setAttribute(`disabled`, `disabled`);
+    stopButton.removeAttribute(`disabled`, `disabled`);
   }, 1000);
 });
 
 stopButton.addEventListener('click', event => {
   clearInterval(timerId);
+  startButton.removeAttribute(`disabled`, `disabled`);
+  stopButton.setAttribute(`disabled`, `disabled`);
 });

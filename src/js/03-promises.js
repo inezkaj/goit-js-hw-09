@@ -27,7 +27,7 @@ form.addEventListener('submit', event => {
   const step = parseInt(document.querySelector('.form input[name=step').value);
 
   for (let i = 0; i < amount; i++) {
-    createPromise(i, delay + step * i)
+    createPromise(i + 1, delay + step * i)
       .then(({ position, delay }) => {
         console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
